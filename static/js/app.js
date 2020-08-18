@@ -1,5 +1,4 @@
 // import data
 //import samples from '../../data/samples.json'
-
-data = '../../data/samples.json'
-console.log(data["names"])
+const fileName = "./data/samples.json"
+d3.json(fileName).then(function(data){ console.log(data)});
