@@ -120,10 +120,9 @@ Plotly.newPlot('gauge', data, layout);
 const bubbleChart = (id) => {
   // gathering data
   info = samples.find(data => data.id.toString() === id)
-  otu_ids = info.otu_ids.slice(0,10).reverse()
-  sample_values = info.sample_values.slice(0,10).reverse()
-  otu_labels = info.otu_labels.slice(0,10).reverse()
-  console.log("bubble chart", id, info)  
+  otu_ids = info.otu_ids
+  sample_values = info.sample_values
+  otu_labels = info.otu_labels
 
   // plotting the chart
   const trace1 = {
