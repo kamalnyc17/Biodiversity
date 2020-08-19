@@ -69,7 +69,6 @@ const gaugeChart = (id) => {
   // gathering data
   info = metadata.find(data => data.id.toString() === id)
   wfreq = info.wfreq
-  console.log("gauge chart", id, wfreq, info)  
 
   // plotting chart
   const data = [
@@ -77,7 +76,7 @@ const gaugeChart = (id) => {
     type: "indicator",
     mode: "gauge+number+delta",
     value: wfreq,
-    title: { text: "Belly Button Washing Frequency", font: { size: 24 } },
+    title: { text: "Belly Button Washing Frequency", font: { size: 24, family: 'Arial' } },
     delta: { reference: wfreq, increasing: { color: "RebeccaPurple" } },
     gauge: {
       axis: { range: [0, 9], tickwidth: 1, tickcolor: "darkblue" },
@@ -119,6 +118,10 @@ Plotly.newPlot('gauge', data, layout);
 
 // bubble chart
 const bubbleChart = (id) => {
+  // gathering data
   info = samples.find(data => data.id.toString() === id)
+  otu_ids = info.otu_ids.slice(0,10).map(id => "OTU "+id.toString()).reverse()
+  sample_values = info.sample_values.slice(0,10).reverse()
+  otu_labels = info.otu_labels.slice(0,10).reverse()
   console.log("bubble chart", id, info)  
 }
