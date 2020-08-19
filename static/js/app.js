@@ -120,30 +120,30 @@ Plotly.newPlot('gauge', data, layout);
 const bubbleChart = (id) => {
   // gathering data
   info = samples.find(data => data.id.toString() === id)
-  otu_ids = info.otu_ids.slice(0,10).map(id => "OTU "+id.toString()).reverse()
+  otu_ids = info.otu_ids.slice(0,10).reverse()
   sample_values = info.sample_values.slice(0,10).reverse()
   otu_labels = info.otu_labels.slice(0,10).reverse()
   console.log("bubble chart", id, info)  
 
   // plotting the chart
   const trace1 = {
-    x: [1, 2, 3, 4],
-    y: [10, 11, 12, 13],
-    text: ['A<br>size: 40', 'B<br>size: 60', 'C<br>size: 80', 'D<br>size: 100'],
+    x: otu_ids,
+    y: sample_values,
+    text: otu_labels,
     mode: 'markers',
     marker: {
-      color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
-      size: [40, 60, 80, 100]
+      color: otu_ids,
+      size: sample_values
     }
   };
   
   const data = [trace1];
   
   const layout = {
-    title: 'Bubble Chart Hover Text',
+    title: '',
     showlegend: false,
     height: 600,
-    width: 600
+    width: 1300
   };
   
   Plotly.newPlot('bubble', data, layout);
