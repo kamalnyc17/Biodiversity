@@ -43,13 +43,16 @@ const createDemogrphic = (id) => {
 }
 // bar chart
 const barChart = (id) => {
-  console.log("bar chart", id, samples)  
+  info = samples.find(data => data.id.toString() === id)
+  console.log("bar chart", id, info)  
 }
 // gauge chart
 const gaugeChart = (id) => {
-  console.log("gauge chart", id, samples)  
+  info = samples.find(data => data.id.toString() === id)
+  console.log("gauge chart", id, info)  
 }
 // bubble chart
 const bubbleChart = (id) => {
-  console.log("bubble chart", id, samples)  
+  info = samples.find(data => data.id.toString() === id)
+  console.log("bubble chart", id, info)  
 }
