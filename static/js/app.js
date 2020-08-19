@@ -45,7 +45,12 @@ const createDemogrphic = (id) => {
 // bar chart
 const barChart = (id) => {
   info = samples.find(data => data.id.toString() === id)
-  console.log("bar chart", id, info)  
+  otu_ids = info.otu_ids.slice(0,10).map(id => "OTU "+id.toString())
+  sample_values = info.sample_values.slice(0,10)
+  otu_labels = info.otu_labels.slice(0,10)
+  console.log("bar chart 1", id, sample_values)  
+  console.log("bar chart 2", id, otu_ids)   
+  console.log("bar chart 3", id, otu_labels)  
 }
 // gauge chart
 const gaugeChart = (id) => {
