@@ -50,15 +50,15 @@ const barChart = (id) => {
   otu_labels = info.otu_labels.slice(0,10).reverse()
 
   // plotting chart
-  var trace1 = {
+  const trace1 = {
     x: sample_values,
     y: otu_ids,
     type: "bar",
     orientation: 'h',
     hovertemplate: otu_labels
   };
-  var data = [trace1];
-  var layout = {
+  const data = [trace1];
+  const layout = {
     title: ""
   };
   Plotly.newPlot("bar", data, layout);
@@ -66,8 +66,55 @@ const barChart = (id) => {
 
 // gauge chart
 const gaugeChart = (id) => {
-  info = samples.find(data => data.id.toString() === id)
-  console.log("gauge chart", id, info)  
+  // gathering data
+  info = metadata.find(data => data.id.toString() === id)
+  wfreq = info.wfreq
+  console.log("gauge chart", id, wfreq, info)  
+
+  // plotting chart
+  const data = [
+  {
+    type: "indicator",
+    mode: "gauge+number+delta",
+    value: wfreq,
+    title: { text: "Belly Button Washing Freqiency", font: { size: 24 } },
+    delta: { reference: wfreq, increasing: { color: "RebeccaPurple" } },
+    gauge: {
+      axis: { range: [0, 9], tickwidth: 1, tickcolor: "darkblue" },
+      bar: { color: "darkblue" },
+      bgcolor: "white",
+      borderwidth: 2,
+      bordercolor: "gray",
+      steps: [
+        { range: [0, 1], color: "#eb4334" },
+        { range: [1, 2], color: "#eb6234" },
+        { range: [2, 3], color: "#eb9f34" },
+        { range: [3, 4], color: "#ebc634" },
+        { range: [4, 5], color: "#34e5eb" },
+        { range: [5, 6], color: "#34c3eb" },
+        { range: [6, 7], color: "#349feb" },
+        { range: [7, 8], color: "#93eb34" },
+        { range: [8, 9], color: "#4feb34" },
+        { range: [9, 10], color: "#34eb89" }
+      ],
+      threshold: {
+        line: { color: "red", width: 4 },
+        thickness: 0.75,
+        value: 9
+      }
+    }
+  }
+];
+
+const layout = {
+  width: 450,
+  height: 400,
+  margin: { t: 25, r: 25, l: 25, b: 25 },
+  paper_bgcolor: "lavender",
+  font: { color: "darkblue", family: "Arial" }
+};
+
+Plotly.newPlot('gauge', data, layout);
 }
 // bubble chart
 const bubbleChart = (id) => {
