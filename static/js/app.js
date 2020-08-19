@@ -40,7 +40,6 @@ const createDemogrphic = (id) => {
   document.getElementById('data-location').innerHTML = "Location: " + info.location
   document.getElementById('data-bbtype').innerHTML = "BBTYPE: " + info.bbtype
   document.getElementById('data-wfreq').innerHTML = "WFREQ: " + info.wfreq  
-  console.log("meta data", id, info)  
 }
 // bar chart
 const barChart = (id) => {
@@ -64,6 +63,7 @@ const barChart = (id) => {
   };
   Plotly.newPlot("bar", data, layout);
 }
+
 // gauge chart
 const gaugeChart = (id) => {
   info = samples.find(data => data.id.toString() === id)
