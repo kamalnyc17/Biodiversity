@@ -44,13 +44,25 @@ const createDemogrphic = (id) => {
 }
 // bar chart
 const barChart = (id) => {
+  // gathering data
   info = samples.find(data => data.id.toString() === id)
-  otu_ids = info.otu_ids.slice(0,10).map(id => "OTU "+id.toString())
-  sample_values = info.sample_values.slice(0,10)
-  otu_labels = info.otu_labels.slice(0,10)
-  console.log("bar chart 1", id, sample_values)  
-  console.log("bar chart 2", id, otu_ids)   
-  console.log("bar chart 3", id, otu_labels)  
+  otu_ids = info.otu_ids.slice(0,10).map(id => "OTU "+id.toString()).reverse()
+  sample_values = info.sample_values.slice(0,10).reverse()
+  otu_labels = info.otu_labels.slice(0,10).reverse()
+
+  // plotting chart
+  var trace1 = {
+    x: sample_values,
+    y: otu_ids,
+    type: "bar",
+    orientation: 'h',
+    hovertemplate: otu_labels
+  };
+  var data = [trace1];
+  var layout = {
+    title: ""
+  };
+  Plotly.newPlot("bar", data, layout);
 }
 // gauge chart
 const gaugeChart = (id) => {
