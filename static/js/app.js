@@ -45,7 +45,7 @@ const createDemogrphic = (id) => {
 const barChart = (id) => {
   // gathering data
   info = samples.find(data => data.id.toString() === id)
-  otu_ids = info.otu_ids.slice(0,10).map(id => "OTU "+id.toString()).reverse()
+  otu_ids = info.otu_ids.slice(0,10).map(id => "OTU "+id.toString()+" ").reverse()
   sample_values = info.sample_values.slice(0,10).reverse()
   otu_labels = info.otu_labels.slice(0,10).reverse()
 
@@ -59,7 +59,20 @@ const barChart = (id) => {
   };
   const data = [trace1];
   const layout = {
-    title: ""
+    xaxis: {
+      tickfont: {
+        family: 'Arial, Helvetica, sans-serif',
+        size: 12,
+        color: '#000000'
+      },
+    },
+    yaxis: {
+      tickfont: {
+        family: 'Arial, Helvetica, sans-serif',
+        size: 12,
+        color: '#000000'
+      },
+    }
   };
   Plotly.newPlot("bar", data, layout);
 }
@@ -140,6 +153,16 @@ const bubbleChart = (id) => {
   
   const layout = {
     title: '',
+    xaxis: {
+      title: {
+        text: 'OTU ID',
+        font: {
+          family: 'Arial, Helvetica, sans-serif',
+          size: 18,
+          color: '#000000'
+        }
+      },
+    },
     showlegend: false,
     height: 600,
     width: 1300
