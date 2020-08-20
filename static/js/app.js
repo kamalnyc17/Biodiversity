@@ -80,17 +80,14 @@ const barChart = (id) => {
 // gauge chart
 const gaugeChart = (id) => {
   // gathering data
-  info = metadata.find(data => data.id.toString() === id)
-  wfreq = info.wfreq
+  val = metadata.find(data => data.id.toString() === id).wfreq
 
   // plotting chart
   const data = [
   {
     type: "indicator",
-    mode: "gauge+number+delta",
-    value: wfreq,
-    title: { text: "Belly Button Washing Frequency", font: { size: 24, family: 'Arial' } },
-    delta: { reference: wfreq, increasing: { color: "RebeccaPurple" } },
+    mode: "gauge+number",
+    value: val,
     gauge: {
       axis: { range: [0, 9], tickwidth: 1, tickcolor: "darkblue" },
       bar: { color: "darkblue" },
@@ -121,9 +118,16 @@ const gaugeChart = (id) => {
 const layout = {
   width: 450,
   height: 400,
-  margin: { t: 25, r: 25, l: 25, b: 25 },
+  margin: { t: 75, r: 25, l: 25, b: 25 },
   paper_bgcolor: "lavender",
-  font: { color: "darkblue", family: "Arial" }
+  font: { color: "darkblue", family: "Arial, Helvetica, sans-serif" },
+  title: { 
+    text: "Belly Button Washing Frequency", 
+    font: { 
+      size: 24, 
+      family: 'Arial, Helvetica, sans-serif' 
+    } 
+  },
 };
 
 Plotly.newPlot('gauge', data, layout);
