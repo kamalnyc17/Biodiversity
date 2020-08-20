@@ -152,7 +152,6 @@ const bubbleChart = (id) => {
   const data = [trace1];
   
   const layout = {
-    title: '',
     xaxis: {
       title: {
         text: 'OTU ID',
@@ -161,6 +160,18 @@ const bubbleChart = (id) => {
           size: 18,
           color: '#000000'
         }
+      },
+      tickfont: {
+        family: 'Arial, Helvetica, sans-serif',
+        size: 12,
+        color: '#000000'
+      },
+    },
+    yaxis: {
+      tickfont: {
+        family: 'Arial, Helvetica, sans-serif',
+        size: 12,
+        color: '#000000'
       },
     },
     showlegend: false,
