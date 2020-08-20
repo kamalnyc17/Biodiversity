@@ -122,7 +122,7 @@ const layout = {
   paper_bgcolor: "lavender",
   font: { color: "darkblue", family: "Arial, Helvetica, sans-serif" },
   title: { 
-    text: "Belly Button Washing Frequency", 
+    text: "<b>Belly Button Washing Frequency</b> <br> Scrubs per Week", 
     font: { 
       size: 24, 
       family: 'Arial, Helvetica, sans-serif' 
