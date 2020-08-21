@@ -8,4 +8,4 @@
 ### 4. Gauge Chart to display the weekly washing frequency of the Test Subject.
 ### 5. Bubble Chart to display each sample of the Test Subject.
 
-## All the above visualizations will update any time a new Test Subject is selected.
+## All these visualizations will update automatically any time a new Test Subject is selected.
